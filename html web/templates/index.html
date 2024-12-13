@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Efficiency Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Main container -->
+    <div class="container">
+        <header>
+            <h1>What Affects Sleep Efficiency?</h1>
+            <p>How different habits affect sleep Efficiency.</p>
+        </header>
+
+        <section class="charts">
+            </h2>Sleep Efficiency Counts</h2>
+            <div class="chart-container">
+                <!-- Embed the first Plotly chart dynamically -->
+                {{ graph_html1 | safe }}
+            </div>
+        </section>
+       
+
+        
+        <section class="filters">
+            <h2>Select a Habit</h2>
+            <button onclick="getChartData('Alcohol consumption')">Alcohol consumption</button>
+            <button onclick="getChartData('Smoking status')">Smoking Status</button>
+            <button onclick="getChartData('Exercise frequency')">Exercise Frequency</button>
+            <button onclick="getChartData('Bedtime')">Bedtime</button>
+            <button onclick="getChartData('Wakeup time')">Wakeup Time</button>
+        </section>
+        <script>  
+            function buttonClicked(selectedHabit) {  
+                // Send the selected habit back to the parent window (Streamlit)  
+                window.parent.postMessage({ habit: selectedHabit }, "*");  
+            }  
+        </script> 
+
+        <section class="content">
+            <div id="chart-container">
+                <!-- The chart will be injected here -->
+            </div>
+        </section>
+    
+
+    <script>
+        function getChartData(habit) {
+            // Send an AJAX request to the Flask backend
+            $.get("/get_chart/" + habit, function(data) {
+                // Inject the chart HTML into the chart container
+                $('#chart-container').html(data.chart);
+            });
+        }
+    </script>
+
+        <section class="two-column-layout">
+            <div class="column1">
+                <section class="chart-widget">
+                    <div class="chart-container">
+                        <!-- Embed the first Plotly chart dynamically -->
+                        {{ graph_html3 | safe }}
+                    </div>
+                </section>
+                <section class="chart-widget">
+                    <div class="chart-container">
+                        <!-- Embed the second Plotly chart dynamically -->
+                        {{ graph_html4 | safe }}
+                    </div>
+                </section>
+            </div>
+            
+            <div class="column2">
+                <section class="text-widget">
+                    <div class="text-container">
+                        <h2>The Hypothesis</h2>
+                        <p>My goal is to check whether bad habits lead to poor sleep efficiency and do good habits actually increase one's sleep. In order to do so, I will calculate the mean of each habit listed above and, if the value of the corresponding habit is higher or lower than the mean, I will add one point to either column "Good lifestyle" or to the column "Bad lifestyle" according to the habit itself.</strong></p>
+                        
+                        <h2>Lifestyle level vs Sleep efficiency</h2>
+                        <p>
+                            I was correct, the worse your lifestyle is, the poorer you sleep
+                            efficiency is. However, 'Good lifestyle 4' depicts the highest mean
+                            (0.814) for sleep efficiency among all values, including 'Good lifestyle 5'.
+                            This would mean extremely good lifestyle could actually result in poorer sleep quality.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+            
+
+    <section class="two-column-layout">
+        <div class="column1">
+            <section class="chart-widget">
+                <div class="chart-container">
+                    <!-- Embed the first Plotly chart dynamically -->
+                    {{ graph_html2 | safe }}
+                </div>
+            </section>
+        </div>
+        <div class="column2">
+            <section class="text-widget">
+                <div class="text-container">
+                    <h2>Comparison</h2>
+                    <p>
+                        I was correct, the worse your lifestyle is, the poorer you sleep
+                        efficiency is. However, 'Good lifestyle 4' depicts the highest mean
+                        (0.814) for sleep efficiency among all values, including 'Good lifestyle 5'.
+                        This would mean extremely good lifestyle could actually result in poorer sleep quality.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </section>
+
+
+</body>
+</html>

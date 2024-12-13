@@ -1,0 +1,131 @@
+
+
+/* Apply a general style to the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Light background color */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column; /* Stack items vertically */
+    height: 100vh;
+    margin: 0;
+    padding: 20px; /* Adds space around the content, creating free borders */
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 97%;
+    margin: 0 auto;
+    padding: 20px;
+    overflow: auto;
+}
+
+    /* Make all headings (h1, h2, etc.) bold */
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: bold;  /* Makes headings bold */
+    }
+
+    /* Optional: Specific style for h1 */
+    h1 {
+        font-size: 3em;  /* Increase size of h1 */
+        color: #363640;
+        margin-top: 20px; /* Add space above */
+    }
+
+    /* Optional: Specific style for h2 */
+    h2 {
+        font-size: 1.5em;
+        color: #363640;  /* Center the title */
+        margin-top: 20px;
+        margin-bottom: 30px;  /* Adjust size of h2 */
+    }
+/* Style the buttons container */
+.filters {
+    display: flex;
+    gap: 10px; 
+    margin-top: 30px;
+    margin-bottom: 40px; /* Adds space between buttons */
+}
+
+/* Modern button styling */
+.filters button {
+    background-color: #fff;  /* Green background color */
+    color: rgba(14, 14, 17, 0.942);  /* White text color */
+    border: none;  /* Removes the default border */
+    padding: 12px 24px;  /* Add padding for bigger buttons */
+    font-size: 14px;  /* Font size */
+    border-radius: 25px;  /* Rounded corners */
+    cursor: pointer;  /* Changes cursor to pointer on hover */
+    transition: all 0.3s ease;  /* Smooth transition for hover effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Soft shadow effect */
+}
+
+/* Hover effect for buttons */
+.filters button:hover {
+    background-color: #fff;  /* Darken the background on hover */
+    transform: translateY(-3px);  /* Slightly raise the button */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);  /* Increase shadow on hover */
+}
+
+/* Active state for buttons (when clicked) */
+.filters button:active {
+    background-color: #fff;  /* Darker shade when clicked */
+    transform: translateY(1px);  /* Push button slightly down */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Shadow effect when clicked */
+}
+
+
+.two-column-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Adds space between the columns */
+    gap: 20px;
+    clear: both; /* Optional, controls the space between columns */
+    flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+}
+
+/* Make each column take up 50% width */
+.column1, .column2 {
+    flex: 2; /* Each column will take equal space */
+    padding: 20px;
+    border-radius: 20px; /* Optional: rounds the corners of the column */
+    background-color: #fff; /* Optional: makes sure the background is white */
+}
+
+
+.chart-widget {
+    
+    border-radius: 20px; /* Optional: rounded corners */
+    background-color: #fff; /* White background for the widget */
+    padding: 20px; /* Padding inside the widget */
+    max-width: 94%; /* Ensures the widget doesn't overflow its parent container */
+    margin: 30px 0;
+    height: auto;
+    margin-bottom: 30px;
+    margin-top: 30px; /* Optional: centers the widget horizontally */
+}
+
+/* Styling for the chart container inside the widget */
+.chart-container {
+    width: 94%; /* Ensures the chart container takes up the full width of the widget */
+    height: 400px; /* Set a fixed height for the chart (adjust as needed) */
+    overflow: auto; /* Optional: hides overflow if the chart goes outside the container */
+    border-radius: 20px; /* Optional: rounding the chart container's corners */
+}
+
+
+.text-widget {
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 20px;
+    max-width: 94%;
+    margin: 20px auto;
+    height: auto;
+    overflow: hidden; /* Prevent overflow */
+}
+.text-container {
+    width: 100%;
+    padding: 15px; /* Add padding to give space around the text */
+    box-sizing: border-box;
+}
